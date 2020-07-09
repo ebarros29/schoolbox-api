@@ -32,7 +32,7 @@ Clone this repository:
 ```
 git clone https://github.com/ebarros29/schoolbox-api
 
-cd schoolbox-api
+cd schoolbox-api/
 ```
 
 ### Installing
