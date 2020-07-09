@@ -55,7 +55,15 @@ https://docs.docker.com/compose/install/
 
 ```
 docker-compose up -d
+
 ```
+Type http://localhost:5000 in your browser in order to see the Welcome Screen
+
+To test the API CRUD by using swagger, type the below URI in your browser:
+http://localhost:5000/api/ui/#/Student
+
+To teste the API CRUD by using curl or other request tool, use the below URI:
+http://localhost:5000/api/student
 
 ## Running the tests
 
