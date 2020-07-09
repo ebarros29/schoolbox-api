@@ -1,0 +1,407 @@
+swagger: "2.0"
+info:
+  description: API Swagger File
+  version: "1.0.0"
+  title: Swagger Scoolbox API
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+
+paths:
+  /student:
+    get:
+      operationId: student.read_all
+      tags:
+        - Student
+      summary: Read the entire set of student, sorted by first name
+      description: Read the entire set of student, sorted by first name
+      responses:
+        200:
+          description: Successfully read student set operation
+          schema:
+            type: array
+            items:
+              properties:
+                student_id:
+                  type: integer
+                  description: student ID
+                cpf:
+                  type: string
+                  description: student CPF
+                first_name:
+                  type: string
+                  description: student first name
+                last_name:
+                  type: string
+                  description: student last name
+                birth_date:
+                  type: string
+                  description: student birth date
+                phone:
+                  type: string
+                  description: student phone number
+                grade:
+                  type: string
+                  description: student grade
+                address:
+                  type: string
+                  description: student home address
+                email:
+                  type: string
+                  description: student email
+                mother_name:
+                  type: string
+                  description: student mothers name
+                father_name:
+                  type: string
+                  description: student fathers name
+                parents_phone:
+                  type: string
+                  description: student parents phone  
+                timestamp:
+                  type: string
+                  description: student creation/update timestamp
+
+    post:
+      operationId: student.create
+      tags:
+        - Student
+      summary: Create a student
+      description: Create a new student
+      parameters:
+        - name: student
+          in: body
+          description: Student to be created
+          required: True
+          schema:
+            type: object
+            properties:
+                cpf:
+                  type: string
+                  description: student CPF
+                first_name:
+                  type: string
+                  description: student first name
+                last_name:
+                  type: string
+                  description: student last name
+                birth_date:
+                  type: string
+                  description: student birth date
+                phone:
+                  type: string
+                  description: student phone number
+                grade:
+                  type: string
+                  description: student grade
+                address:
+                  type: string
+                  description: student home address
+                email:
+                  type: string
+                  description: student email
+                mother_name:
+                  type: string
+                  description: student mothers name
+                father_name:
+                  type: string
+                  description: student fathers name
+                parents_phone:
+                  type: string
+                  description: student parents phone
+            required:
+              - cpf
+              - first_name
+              - last_name
+              - birth_date
+              - phone
+              - grade
+              - address
+              - mother_name
+              - parents_phone
+      responses:
+        201:
+          description: Student successfully created
+          schema:
+            properties:
+                student_id:
+                  type: integer
+                  description: student ID
+                cpf:
+                  type: string
+                  description: student CPF
+                first_name:
+                  type: string
+                  description: student first name
+                last_name:
+                  type: string
+                  description: student last name
+                birth_date:
+                  type: string
+                  description: student birth date
+                phone:
+                  type: string
+                  description: student phone number
+                grade:
+                  type: string
+                  description: student grade
+                address:
+                  type: string
+                  description: student home address
+                email:
+                  type: string
+                  description: student email
+                mother_name:
+                  type: string
+                  description: student mothers name
+                father_name:
+                  type: string
+                  description: student fathers name
+                parents_phone:
+                  type: string
+                  description: student parents phone  
+                timestamp:
+                  type: string
+                  description: student creation/update timestamp
+            required:
+              - cpf
+              - first_name
+              - last_name
+              - birth_date
+              - phone
+              - grade
+              - address
+              - mother_name
+              - parents_phone
+
+  /student/findByCPF:
+    get:
+      operationId: student.read_oneByCPF
+      tags:
+        - Student
+      summary: Filter one student by CPF
+      description: Filter one student by CPF
+      parameters:
+        - name: cpf
+          in: query
+          description: CPF of the student to get
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully filter student from student data
+          schema:
+            type: object
+            properties:
+                student_id:
+                  type: integer
+                  description: student ID
+                cpf:
+                  type: string
+                  description: student CPF
+                first_name:
+                  type: string
+                  description: student first name
+                last_name:
+                  type: string
+                  description: student last name
+                birth_date:
+                  type: string
+                  description: student birth date
+                phone:
+                  type: string
+                  description: student phone number
+                grade:
+                  type: string
+                  description: student grade
+                address:
+                  type: string
+                  description: student home address
+                email:
+                  type: string
+                  description: student email
+                mother_name:
+                  type: string
+                  description: student mothers name
+                father_name:
+                  type: string
+                  description: student fathers name
+                parents_phone:
+                  type: string
+                  description: student parents phone  
+                timestamp:
+                  type: string
+                  description: student creation/update timestamp
+                  
+  /student/{student_id}:
+    get:
+      operationId: student.read_oneByID
+      tags:
+        - Student
+      summary: Filter one student
+      description: Filter one student
+      parameters:
+        - name: student_id
+          in: path
+          description: Id of the student to get
+          type: integer
+          required: True
+      responses:
+        200:
+          description: Successfully filter student from student data
+          schema:
+            type: object
+            properties:
+                student_id:
+                  type: integer
+                  description: student ID
+                cpf:
+                  type: string
+                  description: student CPF
+                first_name:
+                  type: string
+                  description: student first name
+                last_name:
+                  type: string
+                  description: student last name
+                birth_date:
+                  type: string
+                  description: student birth date
+                phone:
+                  type: string
+                  description: student phone number
+                grade:
+                  type: string
+                  description: student grade
+                address:
+                  type: string
+                  description: student home address
+                email:
+                  type: string
+                  description: student email
+                mother_name:
+                  type: string
+                  description: student mothers name
+                father_name:
+                  type: string
+                  description: student fathers name
+                parents_phone:
+                  type: string
+                  description: student parents phone  
+                timestamp:
+                  type: string
+                  description: student creation/update timestamp
+
+    put:
+      operationId: student.update
+      tags:
+        - Student
+      summary: Update student information
+      description: Update student information
+      parameters:
+        - name: student_id
+          in: path
+          description: student ID to be update
+          type: integer
+          required: True
+        - name: student
+          in: body
+          schema:
+            type: object
+            properties:
+                cpf:
+                  type: string
+                  description: student CPF
+                first_name:
+                  type: string
+                  description: student first name
+                last_name:
+                  type: string
+                  description: student last name
+                birth_date:
+                  type: string
+                  description: student birth date
+                phone:
+                  type: string
+                  description: student phone number
+                grade:
+                  type: string
+                  description: student grade
+                address:
+                  type: string
+                  description: student home address
+                email:
+                  type: string
+                  description: student email
+                mother_name:
+                  type: string
+                  description: student mothers name
+                father_name:
+                  type: string
+                  description: student fathers name
+                parents_phone:
+                  type: string
+                  description: student parents phone 
+      responses:
+        200:
+          description: The student information has been successfully updated
+          schema:
+            properties:
+                student_id:
+                  type: integer
+                  description: student ID
+                cpf:
+                  type: string
+                  description: student CPF
+                first_name:
+                  type: string
+                  description: student first name
+                last_name:
+                  type: string
+                  description: student last name
+                birth_date:
+                  type: string
+                  description: student birth date
+                phone:
+                  type: string
+                  description: student phone number
+                grade:
+                  type: string
+                  description: student grade
+                address:
+                  type: string
+                  description: student home address
+                email:
+                  type: string
+                  description: student email
+                mother_name:
+                  type: string
+                  description: student mothers name
+                father_name:
+                  type: string
+                  description: student fathers name
+                parents_phone:
+                  type: string
+                  description: student parents phone  
+                timestamp:
+                  type: string
+                  description: student creation/update timestamp
+
+    delete:
+      operationId: student.delete
+      tags:
+        - Student
+      summary: Delete a student from the student list
+      description: Delete a student
+      parameters:
+        - name: student_id
+          in: path
+          type: integer
+          description: student ID to be deleted
+          required: true
+      responses:
+        200:
+          description: The student information has been successfully deleted
